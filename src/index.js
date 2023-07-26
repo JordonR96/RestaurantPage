@@ -1,14 +1,6 @@
 // TODO once dev work is done - https://webpack.js.org/guides/production/
-// make it so it could run like a real project
+// make it so it could run on a real server - run with express
 import './style.css';
-import jb_logo from './assets/images/jb_logo.jpeg';
-import { Navbar } from "./components/navbar/navbar.js";
+import {App} from './components/app.js'
 
-const app = document.createElement("div");
-app.classList.add("app");
-console.log('LIVE');
-
-const nav = Navbar(jb_logo);
-nav.draw(app);
-
-document.body.appendChild(app);
+App.draw(document.body);
