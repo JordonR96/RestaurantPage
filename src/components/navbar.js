@@ -101,6 +101,7 @@ export const Navbar = (function () {
             justify-content: center;
             gap: 20px;
             background-color: var(--primary-color);
+            border-bottom: 2px solid black;
         `;
 
         drawLogo(_container);

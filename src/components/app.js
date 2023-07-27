@@ -2,7 +2,8 @@
 // https://eckben.github.io/bearysBreakfastBar/
 // TODO make it look nice. and add actual content
 // TODO give everythimg an id to match its filename
-// TODO see if i can refactor and actually use component template in my components to reduce boilerplate
+// TODO see if i can refactor and actually use component template in my components to reduce boilerplat
+// TODO loading screen
 
 import jb_logo from '../assets/images/jb_logo.jpeg';
 import {Utils} from './utils.js';

@@ -12,8 +12,10 @@ html {
     font-size: 1.25em;
 
     --primary-color: #F3D503;
-    --primary-color-hover: #e0c91af4;
-    --app-background: #e0c91af4;
+    --secondary-color: #fce22d;
+
+    --primary-color-hover: #fce22d;
+    --app-background: #c9c9c9f4;
 
     background-color: var(--app-background);
 }
@@ -31,5 +33,5 @@ font-family: sans-serif;
 
 body {
     height: 100vh;
-    padding: 3em 1em;
+    padding: 1em;
 }
