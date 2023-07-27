@@ -10,6 +10,12 @@ html {
     margin: auto;
     line-height: 1.75;
     font-size: 1.25em;
+
+    --primary-color: #F3D503;
+    --primary-color-hover: #e0c91af4;
+    --app-background: #e0c91af4;
+
+    background-color: var(--app-background);
 }
 
 h1,h2,h3,h4,h5,h6 {

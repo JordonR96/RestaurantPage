@@ -1,3 +1,4 @@
+import {NavbarItem} from "./navbarItem.js"
 export const Navbar = (function () {
     // items is an array oof objectslike [{name : "", on_click: function...}] fopr us in tab switching
     
@@ -9,18 +10,28 @@ export const Navbar = (function () {
 
     let _items = [];
 
+    let _item_elements = [];
+    
+
     function setLogoImage(image) {
         _logo = new Image();
         _logo.src = image;
 
         _logo.style = `
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 100%;
         `
     }
 
     function drawLogo(container) {
+        // TODO add alt
         const _logo_container = document.createElement("div");
+        _logo_container.style = `
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+        `;
 
         if (_logo) {
             _logo_container.appendChild(_logo)
@@ -50,24 +61,34 @@ export const Navbar = (function () {
         _items = new_items;
     }
 
+    function deactivateAll(callback) {
+        // Note - this only sets to inactive and affects styles and doesnt click anything else;
+        _item_elements.forEach(item => item.deactivate());
+    }
+
     function drawItems(container) {
         let items_container = document.createElement("div");
+        items_container.id = "navbar_item_container";
         
         items_container.style = `
             display: flex;
         `;
 
-        _items.forEach(function ({name, on_click}) {
+        _items.forEach(function ({name, on_click, active}, i) {
+            let item = NavbarItem(`navbar_item_${i}`, name, function() {
+                // deactivate all, only one active at a time.
+                deactivateAll(on_click);
+                on_click();
+            });
 
-            let item = document.createElement("div");
-            item.style = `
-                padding: 0.2em;
-                background-color: red;
-            `;
-            item.innerText = name;
-            item.onclick = on_click;
+            item.draw(items_container)
 
-            items_container.appendChild(item);
+            if (active) {
+                // items are not active by default so if we want this one to be active perform same action as clicking
+                item.onClick();
+            }
+            // store reference to each item we have
+            _item_elements.push(item);
         });
         container.appendChild(items_container);
     }
@@ -79,6 +100,7 @@ export const Navbar = (function () {
             align-items: center;
             justify-content: center;
             gap: 20px;
+            background-color: var(--primary-color);
         `;
 
         drawLogo(_container);
