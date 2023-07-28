@@ -4,6 +4,7 @@
 // TODO give everythimg an id to match its filename
 // TODO see if i can refactor and actually use component template in my components to reduce boilerplat
 // TODO loading screen
+// TODO make work on mobile
 
 import jb_logo from '../assets/images/jb_logo.jpeg';
 import {Utils} from './utils.js';
@@ -11,7 +12,7 @@ import {Utils} from './utils.js';
 import { Navbar } from "./navbar.js";
 import { Home } from "./home.js";
 import { Menu } from "./menu.js";
-import { Contact } from "./contact.js";
+import { Booking } from "./booking.js";
 
 export const App = (function() {
     const page_container = document.createElement("div");
@@ -48,10 +49,10 @@ export const App = (function() {
             {
                 name: "Menu",
                 on_click: () => drawPage(Menu),
-            },
-            {
-                name: "Contact",
-                on_click: () => drawPage(Contact),
+            }, {
+                name: "Book Now",
+                on_click: () => drawPage(Booking),
+                custom_style: 'background-color: var(--primary-complementary-color); color: white;'
             }
         ]
 

@@ -74,8 +74,8 @@ export const Navbar = (function () {
             display: flex;
         `;
 
-        _items.forEach(function ({name, on_click, active}, i) {
-            let item = NavbarItem(`navbar_item_${i}`, name, function() {
+        _items.forEach(function ({name, on_click, active, custom_style}, i) {
+            let item = NavbarItem(`navbar_item_${i}`, name,custom_style,  function() {
                 // deactivate all, only one active at a time.
                 deactivateAll(on_click);
                 on_click();

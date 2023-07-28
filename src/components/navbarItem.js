@@ -1,4 +1,4 @@
-export const NavbarItem = function(id,name, on_click) {
+export const NavbarItem = function(id,name, custom_style, on_click) {
     let _active = false;
 
     // COMPONENT DRAW CODE HERE
@@ -9,18 +9,17 @@ export const NavbarItem = function(id,name, on_click) {
         padding: 0em 1em;
         margin: 0em 0.5em;
         cursor: default;
-        font-size: 1.2em;
+        font-size: 1.1em;
         border-radius: 10px 10px 0 0;
         user-select: none;
-    `;
+    ` + (custom_style || "");
 
     let _active_style =  `
         background-color: var(--primary-color-hover);
+        color: black;
     `;
 
-    let _hover_style = `
-        border-bottom: 1px solid black;
-    `;
+    let _hover_style = _active_style;
 
 
     function onClick() {
