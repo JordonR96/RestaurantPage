@@ -1,16 +1,29 @@
 import { InfoWidgets } from "./info_widgets";
+import { Button } from './button.js';
 export const Home = (function() {
 
     function getBookWidget() {
         let container = document.createElement("div");
-        container.innerText = "Book Now";
+        container.style = `
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        `;
+        let book_button = Button();
+        book_button.setText("Book Now");
+        book_button.setOnclick(() => {
+            alert("Booking popup would open");
+        });
+        book_button.draw(container);
 
         return container;
     }
 
     function draw(container) {
         const home = document.createElement("div");
-        home.style = `height: 100%;`;
+        home.style = `height: 100%; width: 80ch;`;
 
         let opening_times = `
             Mon - Fri : 11AM - 11PM
@@ -25,17 +38,26 @@ export const Home = (function() {
 
         let contact_config =  {
             type : "info",
-            title: "Contacts",
-            text: "Phone : 07714860360Email : jordonrowley1996@gmail.com",
+            title: "Contact",
+            text: `
+            07714860360
+            `,
         };
 
         let welcome_config =  {
             type : "info",
-            title: "Welcome to JR's",
+            title: `
+            Best
+            Burger
+            In
+            Town
+            `,
             text: "",
-            custom_style: `
-                background-color : var(--primary-complementary-color);
-                color: white;
+            custom_style : `
+                color: var(--primary-color);
+                background-color: transparent;
+                border: 0;
+                text-align: center;
             `,
 
         };

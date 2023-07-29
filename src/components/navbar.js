@@ -1,4 +1,5 @@
 import {NavbarItem} from "./navbarItem.js"
+import { Utils } from "./utils.js";
 export const Navbar = (function () {
     // items is an array oof objectslike [{name : "", on_click: function...}] fopr us in tab switching
     
@@ -14,18 +15,12 @@ export const Navbar = (function () {
     
 
     function setLogoImage(image) {
-        _logo = new Image();
-        _logo.src = image;
-
-        _logo.style = `
-            width: 100%;
-            height: 100%;
-        `
+        _logo =  Utils.getImageElement(image);
     }
 
     function drawLogo(container) {
-        // TODO add alt
         const _logo_container = document.createElement("div");
+        _logo_container.alt = "J Burger Logo";
         _logo_container.style = `
             display: flex;
             justify-content: center;
@@ -98,7 +93,8 @@ export const Navbar = (function () {
         _container.style = `
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
+            padding: 0 12rem;
             gap: 20px;
             background-color: var(--primary-color);
             border-bottom: 2px solid black;

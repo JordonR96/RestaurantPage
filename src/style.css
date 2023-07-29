@@ -5,18 +5,15 @@
 }
 
 html {
-    max-width: 900px;
-    
+    font-family: Arial, Helvetica, sans-serif;
     margin: auto;
     line-height: 1.75;
-    font-size: 1.25em;
+    font-size: 1.4em;
 
     --primary-color: #F3D503;
-    --secondary-color: #fce22d;
-    --primary-complementary-color: #0321f3;
-
-    --primary-color-hover: #fce22d;
-    --app-background: #f3f3f3;
+    --primary-color-tint: #F7E562;
+    --secondary-color: #0321f3;
+    --app-background: #ffffff;
 
     background-color: var(--app-background);
 }

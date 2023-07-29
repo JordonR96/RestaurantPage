@@ -13,9 +13,9 @@ export const InfoWidgets = function() {
             align-items: center;
             justify-content: center;
             border-radius: 5px;
-            background-color: var(--secondary-color);
-            padding: 1em;
+            padding: 1.5em;
             min-height: 150px;
+            background-color: var(--primary-color);
         ` + custom_style;
         Utils.drawTitle(widget, title);
         Utils.drawText(widget, text);
@@ -28,8 +28,9 @@ export const InfoWidgets = function() {
     function drawCustomWidget(container, position, {element}) {
         let widget = document.createElement("div");
         
-        element.style = element.style + `grid-area : ${position};`;
-        container.appendChild(element);
+        widget.style =  `grid-area : ${position};`;
+        widget.appendChild(element);
+        container.appendChild(widget);
 
     }
 
@@ -42,7 +43,7 @@ export const InfoWidgets = function() {
         info_widget_container.style =  `
             height: 100%;
             display: grid;
-            grid-template-columns : repeat(3, 1fr);
+            grid-template-columns : repeat(3, minmax(33%, 1fr));
             grid-template-rows : repeat(3, 1fr);
             grid-template-areas: 
                 "left middle right"
@@ -50,7 +51,6 @@ export const InfoWidgets = function() {
                 "bottom bottom bottom";
             gap: 0.2rem;
             padding: 2rem 1rem;
-            background-color: var(--primary-color);
         `;
 
         for (let [position, config] of Object.entries(widget_items)) {
