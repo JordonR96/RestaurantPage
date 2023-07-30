@@ -1,22 +1,17 @@
 import { Utils } from "./utils";
-export function MenuItem({name, image, price, description}) {
+export function MenuItem({name, image, price}) {
     let _width = "300px";
     let _height = "300px";
     let _details = document.createElement("div");
     _details.style = `
         width: ${_width};
         height: ${_height};
-        padding: 0.5rem;
+        padding: 1rem;
         position: absolute;
-        background-color: rgba(117,117,117,0.3);
+        background-color: rgba(117,117,117,0.7);
         color: white;
+        display: none;  
     `;
-
-    let _description = document.createElement("div");
-    _description.innerText = description;
-    _description.style.display = "none";
-    
-    
     function drawDetails(container) {
         
         let name_element = document.createElement("div");
@@ -26,10 +21,6 @@ export function MenuItem({name, image, price, description}) {
         let price_element = document.createElement("div");
         price_element.innerText = price;
         _details.appendChild(price_element);
-
-        
-        _details.appendChild(_description);
-
 
         container.appendChild(_details);
     }
@@ -45,15 +36,14 @@ export function MenuItem({name, image, price, description}) {
     
     item.onmouseover = function() {
         
-        // _details.style.display = "none";
-        _description.style.display = "block";
+        _details.style.display = "block";
         
     };
 
     item.onmouseout = function() {
         
-        // _details.style.display = "block";
-        _description.style.display = "none";
+        _details.style.display = "none";
+        
     }
     // details must be added after image;
     drawDetails(item);

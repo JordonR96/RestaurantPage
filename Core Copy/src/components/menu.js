@@ -14,27 +14,22 @@ export const Menu = (function() {
     {
         name : "Big Double",
         image : big_double,
-        price : "£3.00",
-        description: "2 Prime Beef patties with our signature sauce."
+        price : "£3.00"
     }, 
     {
         name : "Big Chicken",
         image : big_chicken,
-        price : "£3.00",
-        description: "Crispy battered chicken breast with a generous heap of our house slaw."
-
+        price : "£3.00"
     }, 
     {
-        name : "Big Meal",
+        name : "Big Double",
         image : burger_meal,
-        price : "£5.00",
-        description: "One of our burgers with perfectly crispy fries and a drink of your choice."
+        price : "£5.00"
     }, 
     {
         name : "Dirty Nachos",
         image : dirty_nachos,
-        price : "£5.00",
-        description : "Crispy tortilla chips covered in a mix of ground beef and spicy veggies."
+        price : "£5.00"
     }, 
     ]
 
